@@ -2,101 +2,66 @@ function Invoke-Vulmap {
     <#
     .SYNOPSIS
     Online Local vulnerability Scanner
-
     .DESCRIPTION
     Gets installed software information from the local host and asks to vulmon.com if vulnerabilities and exploits exists.
-
     .PARAMETER Mode
     Mode. Conducts a vulnerability scanning [Default] or [CollectInventory]
-
     .PARAMETER OnlyExploitableVulns
     Conducts a vulnerability scanning and only shows vulnerabilities that have exploits.
-
     .PARAMETER DownloadExploit
     Downloads given exploit.
-
     .PARAMETER DownloadAllExploits
     Scans the computer and downloads all available exploits.
-
     .PARAMETER ReadInventoryFile
     Uses software inventory file rather than scanning local computer.
-
     .PARAMETER SaveInventoryFile
     Saves software inventory file. Enabled automatically when Mode is 'CollectInventory'.
-
     .PARAMETER InventoryInFile
     Input JSON file name referred by SaveInventoryFile. Default is 'inventory.json'.
-
     .PARAMETER InventoryOutFile
     Output JSON file name referred by ReadInventoryFile. Default is 'inventory.json'.
-
     .PARAMETER Proxy
     Specifies an HTTP proxy server. Enter the URI of a network proxy server. (-Proxy http://localhost:8080)
     Remark: not supported on PowerShell core (pwsh.exe).
-
     .EXAMPLE
     PS> Invoke-Vulmap
-
     Default mode. Conducts a vulnerability scanning.
-
     .EXAMPLE
     PS> Invoke-Vulmap -Verbose
-
     Default mode, with verbose messages. Conducts a vulnerability scanning and displays details about progress.
-
     .EXAMPLE
     PS> Invoke-Vulmap -OnlyExploitableVulns
-
     Conducts a vulnerability scanning and only shows vulnerabilities that have exploits.
-
     .EXAMPLE
     PS> Invoke-Vulmap -DownloadExploit EDB9386
-
     Downloads given exploit.
-
     .EXAMPLE
     PS> Invoke-Vulmap -DownloadAllExploits
-
     Scans the computer and downloads all available exploits.
-
     .EXAMPLE
     PS> Invoke-Vulmap -Mode CollectInventory
-
     Collects software inventory but does not conduct a vulnerability scanning.
     Software inventory will be saved as 'inventory.json' in default.
-
     .EXAMPLE
     PS> Invoke-Vulmap -Mode CollectInventory -InventoryOutFile pc0001.json
-
     Collects software inventory and save it with given file name.
     Does not conduct a vulnerability scanning.
-
     .EXAMPLE
     PS> Invoke-Vulmap -SaveInventoryFile
-
     Conducts a vulnerability scanning and saves software inventory to inventory.json file.
-
     .EXAMPLE
     PS> Invoke-Vulmap -SaveInventoryFile -InventoryOutFile pc0001.json
-
     Conducts a vulnerability scanning and saves software inventory to given file name.
-
     .EXAMPLE
     PS> Invoke-Vulmap -ReadInventoryFile
-
     Conducts a vulnerability scanning based on software inventory from file.
     Software inventory will be loaded from 'inventory.json' in default.
-
     .EXAMPLE
     PS> Invoke-Vulmap -ReadInventoryFile -InventoryInFile pc0001.json
-
     Conducts a vulnerability scanning based on software inventory file loaded from given file name.
-
     .EXAMPLE
     PS> Invoke-Vulmap -Proxy http://127.0.0.1:8080
-
     Conducts a vulnerability scanning through an HTTP proxy server.
-
     .LINK
     https://github.com/vulmon
     https://vulmon.com
